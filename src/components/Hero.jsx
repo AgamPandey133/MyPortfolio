@@ -40,7 +40,7 @@ const TypewriterText = ({ texts }) => {
 };
 
 const Hero = () => {
-  const roles = ["Frontend Developer", "Full-Stack Engineer", "Problem Solver"];
+  const roles = ["Software Engineer", "Full-Stack Developer", "Android Specialist", "AI Systems Builder"];
 
   return (
     <section className="relative w-full min-h-[90vh] mx-auto flex items-center pt-24">
