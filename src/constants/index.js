@@ -1,206 +1,150 @@
+import { 
+  FaReact, FaNodeJs, FaPython, FaJava, FaDocker, FaAws, 
+  FaGitAlt, FaGithub, FaLinux 
+} from 'react-icons/fa';
+import { 
+  SiCplusplus, SiKotlin, SiJavascript, SiTypescript, SiHtml5, SiCss3, 
+  SiExpress, SiSocketdotio, SiWebrtc, SiTailwindcss, SiRedux,
+  SiMongodb, SiSqlite, SiFirebase, SiRedis, SiAndroidstudio, SiPostman, SiVercel
+} from 'react-icons/si';
 
 export const navLinks = [
-  {
-    id: "about",
-    title: "About",
-  },
-  {
-    id: "projects",
-    title: "Projects",
-  },
-  {
-    id: "contact",
-    title: "Contact",
-  },
+  { id: "about", title: "About" },
+  { id: "experience", title: "Experience" },
+  { id: "projects", title: "Projects" },
+  { id: "skills", title: "Skills" },
+  { id: "contact", title: "Contact" },
 ];
 
-const services = [
+export const education = [
   {
-    title: "Android Developer",
-    icon: "mobile",
-  },
-  {
-    title: "Web Developer",
-    icon: "web",
-  },
-  {
-    title: "Backend Developer",
-    icon: "backend",
-  },
-  {
-    title: "Problem Solver",
-    icon: "creator",
-  },
-];
-
-const education = [
-  {
-    title: "B.Tech (Information Technology)",
-    institution: "IIIT Una",
-    year: "2023 - Present",
-    grade: "CGPA: 7.34 (Current)",
-    description: "Pursuing Bachelor's degree in Information Technology.",
+    title: "B.Tech in Information Technology",
+    institution: "Indian Institute of Information Technology, Una",
+    year: "2023 — Present",
+    grade: "CGPA: 7.41",
+    description: "Coursework: DSA, Operating Systems, DBMS, Computer Networks, OOP, Linear Algebra, Probability & Statistics.",
   },
   {
     title: "Senior Secondary (Class XII)",
     institution: "CBSE Board",
     year: "2022",
-    grade: "92.4%",
-    description: "Completed 12th grade with distinction.",
+    grade: "Percentage: 92.4%",
+    description: "Completed with distinction in major subjects.",
   },
   {
     title: "Secondary (Class X)",
     institution: "CBSE Board",
     year: "2020",
-    grade: "95.8%",
-    description: "Completed 10th grade with excellence.",
+    grade: "Percentage: 95.8%",
+    description: "Foundation in science and mathematics.",
   },
 ];
 
-const projects = [
+export const experience = [
+  {
+    title: "Frontend Developer Intern",
+    company_name: "Uzence Design Studio",
+    date: "Feb 2026 — Present",
+    points: [
+      "Developed 8+ production-ready UI elements including KeyValue Pair and StatCard using React and TypeScript, adopted across 3 client-facing products within the company's shared design system.",
+      "Implemented 20+ configurable variants with dynamic theming and responsive breakpoints, authored comprehensive Storybook stories and documentation, cutting frontend sprint effort by 35% for downstream teams.",
+      "Translated Figma prototypes into WCAG 2.1 AA-compliant markup with pixel-perfect fidelity, reducing QA revision cycles by 25% through proactive accessibility audits and cross-browser testing."
+    ],
+    badges: ["React", "TypeScript", "Storybook", "Figma"]
+  }
+];
+
+export const projects = [
   {
     name: "Teachmate",
-    description:
-      "A platform connecting teachers and students. (Deployed website)",
+    description: "Real-time messaging and video calling system with a custom Retrieval-Augmented Generation (RAG) pipeline computing in-memory cosine similarity on 3072-dimension vectors for an AI Tutor. Features dual-role architecture with JWT and 'Topic Roulette'.",
     tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "node",
-        color: "green-text-gradient",
-      },
-      {
-         name: "mongodb",
-         color: "pink-text-gradient",
-      }
+      { name: "MERN", color: "text-[#00d4ff]" },
+      { name: "Socket.IO", color: "text-[#7c3aed]" },
+      { name: "WebRTC", color: "text-[#a855f7]" },
+      { name: "Gemini RAG", color: "text-[#f1f5f9]" }
     ],
-    image: "", // Placeholder
     source_code_link: "https://github.com/AgamPandey133/Teachmate",
-    deploy_link: "https://teachmate-backend-w6fp.onrender.com/login",
+    deploy_link: "https://teachmate-backend-w6fp.onrender.com/",
   },
   {
-    name: "SuperPower Service",
-    description:
-      "Production-grade Android utility for real-time text recognition and translation using ML Kit and MediaProjection API.",
+    name: "FileMate",
+    description: "Full-stack file management platform supporting PDF merging and image editing, processing 500+ files daily. Engineered an asynchronous job pipeline with Redis and BullMQ, reducing latency by 60%. Integrated AWS S3 and robust security measures.",
     tags: [
-      {
-        name: "kotlin",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mvvm",
-        color: "green-text-gradient",
-      },
-      {
-        name: "android",
-        color: "pink-text-gradient",
-      },
+      { name: "React 19", color: "text-[#00d4ff]" },
+      { name: "Node.js", color: "text-[#7c3aed]" },
+      { name: "Redis", color: "text-[#a855f7]" },
+      { name: "AWS S3", color: "text-[#f1f5f9]" }
     ],
-    image: "",
-    source_code_link: "https://github.com/AgamPandey133", // Generic fallback if specific link not known, but User put Github next to title in resume. Assumed logical link.
+    source_code_link: "https://github.com/AgamPandey133/FileMate",
   },
   {
-    name: "Book-Store",
-    description:
-      "Full-stack MERN web app for book inventory management with secure authentication and CRUD operations.",
+    name: "RepoLens",
+    description: "AI-powered repository analysis tool. Provides deep insights into codebases, documentation generation, and architecture understanding using advanced language models and vector embeddings.",
     tags: [
-      {
-        name: "mern",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "react",
-        color: "green-text-gradient",
-      },
-      {
-        name: "node",
-        color: "pink-text-gradient",
-      },
+      { name: "React", color: "text-[#00d4ff]" },
+      { name: "TypeScript", color: "text-[#7c3aed]" },
+      { name: "RAG", color: "text-[#a855f7]" },
+      { name: "AI", color: "text-[#f1f5f9]" }
     ],
-    image: "",
-    source_code_link: "https://github.com/AgamPandey133",
+    source_code_link: "https://github.com/AgamPandey133/RepoLens",
   },
   {
-    name: "Job Portal App",
-    description:
-      "Full-stack job portal with JWT authentication, 2FA, and secure job/user management.",
+    name: "SuperPower Copy & Translate",
+    description: "Production-grade Android utility for real-time text recognition and translation. Leverages ML Kit for on-device processing and MediaProjection API for seamless screen capture and interaction.",
     tags: [
-      {
-        name: "nodejs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "express",
-        color: "green-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "pink-text-gradient",
-      },
+      { name: "Kotlin", color: "text-[#00d4ff]" },
+      { name: "ML Kit", color: "text-[#7c3aed]" },
+      { name: "Android SDK", color: "text-[#a855f7]" }
     ],
-    image: "",
-    source_code_link: "https://github.com/AgamPandey133",
-  },
-  {
-    name: "MVVM News App",
-    description:
-      "Android news reader app fetching real-time news using Retrofit and News API.",
-    tags: [
-      {
-        name: "kotlin",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "retrofit",
-        color: "green-text-gradient",
-      },
-      {
-        name: "api",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: "",
-    source_code_link: "https://github.com/AgamPandey133",
-  },
+    source_code_link: "https://github.com/AgamPandey133/SuperPower_Copy_N_translate",
+  }
 ];
 
-const technologies = [
-    { name: "Python" },
-    { name: "C++" },
-    { name: "Kotlin" },
-    { name: "Java" },
-    { name: "React" },
-    { name: "Node.js" },
-    { name: "MongoDB" },
-    { name: "Git" },
-];
-
-const contactInfo = {
-    email: "pandeyagam03@gmail.com",
-    phone: "+91-8718909049",
-    linkedin: "https://linkedin.com/in/agam-pandey03",
-    github: "https://github.com/AgamPandey133",
-    location: "IIIT Una",
+export const skillsData = {
+  "Languages": ["Python", "C", "C++", "Kotlin", "Java", "JavaScript", "SQL", "HTML/CSS"],
+  "Frameworks": ["React.js", "Node.js", "Express.js", "Socket.IO", "WebRTC", "Android SDK", "TailwindCSS", "Redux"],
+  "AI & Cloud": ["Generative AI", "RAG Pipelines", "Vector Embeddings", "Gemini API", "AWS S3", "Redis"],
+  "Databases": ["MongoDB", "SQLite", "Room Database", "Firestore", "Firebase"],
+  "Developer Tools": ["Git", "GitHub", "VS Code", "Android Studio", "Postman", "Vercel"]
 };
 
-const codingProfiles = [
+export const codingProfiles = [
   {
     name: "LeetCode",
-    url: "https://leetcode.com/u/Agam_Pandey/",
+    url: "https://leetcode.com/AgamPandey133",
     icon: "https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png",
-  },
-  {
-    name: "Codeforces",
-    url: "https://codeforces.com/profile/pandeyagam03",
-    icon: "https://cdn.iconscout.com/icon/free/png-256/free-code-forces-3628695-3029920.png",
+    stat: "700+ Problems"
   },
   {
     name: "CodeChef",
-    url: "https://www.codechef.com/users/agampandey11",
-    icon: "https://static.uacdn.net/thumbnail/user/d23696803738479e9545dcde437a3424.png",
+    url: "https://www.codechef.com/users/AgamPandey133",
+    icon: "https://cdn.iconscout.com/icon/free/png-256/free-codechef-3628695-3030030.png",
+    stat: "Rating 1459"
   },
+  {
+    name: "Codeforces",
+    url: "https://codeforces.com/profile/AgamPandey133",
+    icon: "https://cdn.iconscout.com/icon/free/png-256/free-code-forces-3628695-3029920.png",
+    stat: "Rating 1326"
+  }
 ];
 
-export { services, technologies, education, projects, contactInfo, codingProfiles };
+export const contactInfo = {
+  email: "pandeyagam03@gmail.com",
+  phone: "[Available upon request]",
+  location: "IIIT Una",
+  linkedin: "https://www.linkedin.com/in/agam-pandey03/",
+  github: "https://github.com/AgamPandey133"
+};
+
+// AI Terminal Data
+export const terminalData = {
+  about: "I'm Agam Pandey, a B.Tech IT student at IIIT Una. I specialize in building production-grade full-stack and Android applications.",
+  skills: `Languages: Python, C, C++, Kotlin, Java, JS, SQL\nFrameworks: React, Node, Express, WebRTC, Android SDK\nAI & Cloud: RAG, Gemini API, AWS S3, Redis`,
+  experience: `Frontend Developer Intern @ Uzence Design Studio (Feb 2026-Present)\n- Built 8+ production UI elements in React/TS\n- Created Storybook docs cutting effort by 35%\n- Ensured WCAG 2.1 AA compliance`,
+  education: `B.Tech IT @ IIIT Una (2023-Present) | CGPA: 7.41`,
+  projects: `1. Teachmate: WebRTC + AI Tutor with RAG\n2. FileMate: Full-stack file manager + Redis queue\n3. RepoLens: AI repo analysis\n4. SuperPower: Android OCR & Translation`,
+  achievements: `Competitive Programming:\n- CodeChef: 1459\n- Codeforces: 1326\n- LeetCode: 700+ problems solved`,
+  contact: `Email: pandeyagam03@gmail.com\nLinkedIn: in/agam-pandey03\nGitHub: AgamPandey133`,
+};

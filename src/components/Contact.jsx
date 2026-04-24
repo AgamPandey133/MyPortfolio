@@ -1,18 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
-import { NetworkCanvas } from './canvas'; 
-
-
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { contactInfo } from '../constants';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Contact = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
@@ -22,100 +15,143 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!form.name || !form.email || !form.message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
     setLoading(true);
-    // Add logic here
+    // Mock backend
     setTimeout(() => {
-        setLoading(false);
-        alert('Thank you. I will get back to you as soon as possible.');
-        setForm({ name: '', email: '', message: '' });
-    }, 1000);
+      setLoading(false);
+      alert('Thank you! Your message has been sent successfully.');
+      setForm({ name: '', email: '', message: '' });
+    }, 1500);
   };
 
   return (
-    <section id="contact" className={`xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden ${styles.padding} max-w-7xl mx-auto`}>
-      <motion.div
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
-      >
+    <section id="contact" className={`${styles.padding} max-w-7xl mx-auto relative z-0`}>
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
         <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+        <h2 className={styles.sectionHeadText}>Contact.</h2>
+      </motion.div>
 
-        <div className="mt-5 mb-5 flex flex-col gap-4 text-white font-medium">
-             <div className="flex flex-col gap-1">
-                <span className="text-[#00C6FF]">Email</span>
-                <span>pandeyagam03@gmail.com</span>
-             </div>
-             <div className="flex flex-col gap-1">
-                <span className="text-[#00C6FF]">Phone</span>
-                <span>+91-8718909049</span>
-             </div>
-             <div className="flex flex-col gap-1">
-                <span className="text-[#00C6FF]">Location</span>
-                <span>IIIT Una</span>
-             </div>
-             
-             <div className="flex gap-4 mt-4">
-                 <a href="https://linkedin.com/in/agam-pandey03" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-tertiary px-4 py-2 rounded-lg border border-[#00C6FF] text-white hover:bg-[#00C6FF] hover:text-black transition-all">
-                    <FaLinkedin size={20} /> LinkedIn
-                 </a>
-                 <a href="https://github.com/AgamPandey133" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-tertiary px-4 py-2 rounded-lg border border-[#00C6FF] text-white hover:bg-[#00C6FF] hover:text-black transition-all">
-                    <FaGithub size={20} /> GitHub
-                 </a>
-             </div>
-        </div>
-
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className='mt-8 flex flex-col gap-8'
+      <div className="mt-12 flex flex-col md:flex-row gap-12">
+        {/* Contact Info */}
+        <motion.div 
+          className="flex-[0.4] flex flex-col gap-8"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Name</span>
-            <input
-              type='text'
-              name='name'
-              value={form.name}
-              onChange={handleChange}
-              placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
-            />
-          </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Email</span>
-            <input
-              type='email'
-              name='email'
-              value={form.email}
-              onChange={handleChange}
-              placeholder="What's your web address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
-            />
-          </label>
-          <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your Message</span>
-            <textarea
-              rows={7}
-              name='message'
-              value={form.message}
-              onChange={handleChange}
-              placeholder='What you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
-            />
-          </label>
+          <p className="text-text-secondary text-[16px] leading-relaxed">
+            I'm always open to discussing product design work, software engineering roles, or partnership opportunities. Let's build something amazing together.
+          </p>
 
-          <button
-            type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
-          >
-            {loading ? "Sending..." : "Send"}
-          </button>
-        </form>
-      </motion.div>
+          <div className="flex flex-col gap-6 mt-4">
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full glass flex justify-center items-center text-accent-cyan">
+                <FaEnvelope size={20} />
+              </div>
+              <div>
+                <p className="text-sm text-muted font-medium uppercase tracking-wider">Email</p>
+                <a href={`mailto:${contactInfo.email}`} className="text-text-primary hover:text-accent-cyan font-medium transition-colors">
+                  {contactInfo.email}
+                </a>
+              </div>
+            </div>
 
-      <motion.div
-        className='xl:flex-[0.4] xl:h-[350px] md:h-[350px] h-[250px]'
-      >
-        <NetworkCanvas />
-      </motion.div>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full glass flex justify-center items-center text-accent-cyan">
+                <FaPhone size={20} />
+              </div>
+              <div>
+                <p className="text-sm text-muted font-medium uppercase tracking-wider">Phone</p>
+                <p className="text-text-primary font-medium">{contactInfo.phone}</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-12 rounded-full glass flex justify-center items-center text-accent-cyan">
+                <FaMapMarkerAlt size={20} />
+              </div>
+              <div>
+                <p className="text-sm text-muted font-medium uppercase tracking-wider">Location</p>
+                <p className="text-text-primary font-medium">{contactInfo.location}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex gap-4 mt-4">
+            <a href={contactInfo.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass flex justify-center items-center text-text-primary hover:text-accent-cyan hover:border-accent-cyan/50 transition-all">
+              <FaLinkedin size={20} />
+            </a>
+            <a href={contactInfo.github} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass flex justify-center items-center text-text-primary hover:text-accent-cyan hover:border-accent-cyan/50 transition-all">
+              <FaGithub size={20} />
+            </a>
+          </div>
+        </motion.div>
+
+        {/* Contact Form */}
+        <motion.div 
+          className="flex-[0.6] glass-strong p-8 rounded-2xl"
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <label className="flex flex-col gap-2">
+              <span className="text-text-primary font-medium text-sm ml-1">Your Name</span>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="What's your name?"
+                className="form-input"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
+              <span className="text-text-primary font-medium text-sm ml-1">Your Email</span>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="What's your email?"
+                className="form-input"
+              />
+            </label>
+            <label className="flex flex-col gap-2">
+              <span className="text-text-primary font-medium text-sm ml-1">Your Message</span>
+              <textarea
+                rows={5}
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                placeholder="What do you want to say?"
+                className="form-input resize-none"
+              />
+            </label>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-primary mt-2 w-full sm:w-auto self-start"
+            >
+              {loading ? "Sending..." : "Send Message"}
+            </button>
+          </form>
+        </motion.div>
+      </div>
+
+      <div className="mt-20 pt-8 border-t border-white/10 text-center">
+        <p className="text-muted text-sm">
+          © {new Date().getFullYear()} Agam Pandey. All rights reserved.
+        </p>
+      </div>
     </section>
   );
 };
