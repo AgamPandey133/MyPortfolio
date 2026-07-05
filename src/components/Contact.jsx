@@ -13,7 +13,7 @@ const Contact = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       alert("Please fill in all fields.");
@@ -21,12 +21,35 @@ const Contact = () => {
     }
 
     setLoading(true);
-    // Mock backend
-    setTimeout(() => {
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE",
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert('Thank you! Your message has been sent successfully.');
+        setForm({ name: '', email: '', message: '' });
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error(error);
+      alert('An error occurred. Please try again later.');
+    } finally {
       setLoading(false);
-      alert('Thank you! Your message has been sent successfully.');
-      setForm({ name: '', email: '', message: '' });
-    }, 1500);
+    }
   };
 
   return (
