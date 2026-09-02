@@ -77,7 +77,7 @@ const Works = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className='mt-4 text-text-secondary text-[16px] max-w-3xl leading-[30px]'
         >
-          The following projects showcase my ability to build complex systems across different stacks—from full-stack web platforms and real-time communication systems to on-device AI Android utilities.
+          The following projects showcase my ability to build complex systems across different stacks—from full-stack web platforms and real-time communication systems to AI-powered utilities.
         </motion.p>
       </div>
 

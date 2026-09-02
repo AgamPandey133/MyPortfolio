@@ -73,14 +73,14 @@ const Achievements = () => {
           end={1459} 
           platform="CodeChef" 
           label="Max Rating" 
-          link="https://www.codechef.com/users/AgamPandey133"
+          link="https://www.codechef.com/users/agampandey11"
           delay={0.1}
         />
         <StatItem 
           end={1326} 
           platform="Codeforces" 
           label="Max Rating" 
-          link="https://codeforces.com/profile/AgamPandey133"
+          link="https://codeforces.com/profile/pandeyagam03"
           delay={0.2}
         />
         <StatItem 
@@ -88,7 +88,7 @@ const Achievements = () => {
           suffix="+" 
           platform="LeetCode" 
           label="Problems Solved" 
-          link="https://leetcode.com/AgamPandey133"
+          link="https://leetcode.com/u/Agam_Pandey/"
           delay={0.3}
         />
       </div>

@@ -40,7 +40,7 @@ const TypewriterText = ({ texts }) => {
 };
 
 const Hero = () => {
-  const roles = ["Software Engineer", "Full-Stack Developer", "Android Specialist", "AI Systems Builder"];
+  const roles = ["Software Developer", "Full-Stack Developer", "Web Developer", "AI Systems Builder"];
 
   return (
     <section className="relative w-full min-h-[90vh] mx-auto flex items-center pt-24">
@@ -63,7 +63,7 @@ const Hero = () => {
               I'm a <TypewriterText texts={roles} />
             </h2>
             <p className="mt-6 text-muted max-w-lg leading-relaxed text-[16px] sm:text-[18px]">
-              Building production-grade web and Android applications. Transforming complex problems into elegant, accessible, and performant solutions.
+              Building production-grade web applications. Transforming complex problems into elegant, accessible, and performant solutions.
             </p>
           </motion.div>
 

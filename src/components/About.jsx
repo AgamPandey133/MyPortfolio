@@ -21,10 +21,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            I am an IT student at IIIT Una with a strong foundation in Android and Web Development. 
-            I specialize in building production-grade applications that solve real-world problems. 
-            With expertise in <span className="text-text-primary font-medium">Kotlin, React, Node.js, and Modern Web Technologies</span>, I bridge the gap between complex backend logic and intuitive frontend design.
-            I am a quick learner, always exploring new frameworks and tools to optimize performance and user experience.
+            I am a Software Developer passionate about building scalable, production-grade web applications powered by modern technologies and Generative AI. I specialize in developing full-stack applications using React, Node.js, TypeScript, and the MERN stack, with hands-on experience integrating LLMs, RAG pipelines, and AI-powered features into real-world products. I enjoy solving complex engineering problems, writing clean and efficient code, and building intuitive user experiences. As a quick learner, I continuously explore emerging technologies and best practices to create impactful, high-performance software.
           </motion.p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

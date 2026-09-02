@@ -8,6 +8,7 @@ import Skills from './components/Skills';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import Terminal from './components/Terminal';
+import VoiceAssistant from './components/VoiceAssistant';
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
         </main>
 
         <Terminal />
+        <VoiceAssistant />
       </div>
     </BrowserRouter>
   );
