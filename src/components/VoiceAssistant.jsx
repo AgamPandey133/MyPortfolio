@@ -4,7 +4,9 @@ import { Mic, MicOff, Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Initialize Vapi with the public key from the .env file
-const vapi = new Vapi(import.meta.env.VITE_VAPI_PUBLIC_KEY || "");
+const VAPI_PUBLIC_KEY = import.meta.env.VITE_VAPI_PUBLIC_KEY || "";
+const VAPI_ASSISTANT_ID = import.meta.env.VITE_VAPI_ASSISTANT_ID || "";
+const vapi = new Vapi(VAPI_PUBLIC_KEY);
 
 const VoiceAssistant = () => {
   const [callStatus, setCallStatus] = useState('inactive'); // inactive, loading, active
@@ -28,16 +30,14 @@ const VoiceAssistant = () => {
     } else {
       setCallStatus('loading');
       
-      const assistantId = import.meta.env.VITE_VAPI_ASSISTANT_ID;
-      
-      if (!assistantId) {
-        alert("Please add VITE_VAPI_ASSISTANT_ID to your .env file!");
+      if (!VAPI_ASSISTANT_ID) {
+        alert("Please add VITE_VAPI_ASSISTANT_ID to your .env file and restart the server!");
         setCallStatus('inactive');
         return;
       }
 
       try {
-        await vapi.start(assistantId);
+        await vapi.start(VAPI_ASSISTANT_ID);
       } catch (err) {
         console.error("Vapi start error:", err);
         setCallStatus('inactive');
