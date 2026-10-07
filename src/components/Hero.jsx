@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
+import profileImg from '../assets/profile.png';
 
 const TypewriterText = ({ texts }) => {
   const [textIndex, setTextIndex] = useState(0);
@@ -95,13 +96,8 @@ const Hero = () => {
             <div className="absolute inset-4 rounded-full border border-white/5 border-t-accent-cyan/40 border-r-accent-violet/40 animate-[spin_10s_linear_infinite]"></div>
             
             {/* The Image / Placeholder */}
-            <div className="absolute inset-8 rounded-full bg-surface-200 overflow-hidden flex justify-center items-center gradient-border shadow-inner">
-              {/* If you add a profile image in assets, import and use it here instead of the div below */}
-              {/* <img src={profileImg} alt="Agam Pandey" className="w-full h-full object-cover" /> */}
-              
-              <div className="text-center">
-                <span className="text-5xl font-black text-white/10 select-none">AP</span>
-              </div>
+            <div className="absolute inset-8 rounded-full bg-surface-200 overflow-hidden flex justify-center items-center shadow-inner" style={{ zIndex: 10 }}>
+              <img src={profileImg} alt="Agam Pandey" className="w-full h-full object-cover object-top rounded-full relative z-20" />
             </div>
             
             {/* Floating badge */}
